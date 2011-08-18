@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20110818161642) do
 
   create_table "notices", :force => true do |t|
     t.integer  "project_id"
-    t.text     "node"
+    t.text     "note"
     t.integer  "user_id"
     t.string   "element"
     t.string   "position"
