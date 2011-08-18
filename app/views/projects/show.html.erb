@@ -1,15 +1,24 @@
+<%= link_to 'bearbeiten', edit_project_path(@project), :class => 'edit_button' %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Url:</b>
-  <%= @project.url %>
-</p>
+<h1>Projekt: <%= @project.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+<p>Url: <%= @project.url %></p>
 
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<table>
+  <tr>
+    <th>Notize</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @project.notices.each do |notice| %>
+  <tr>
+    <td><%= notice.notice %></td>
+    <td><%= link_to 'Show', notice %></td>
+    <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
+    <td><%= link_to 'Destroy', notice, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

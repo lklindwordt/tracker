@@ -96,6 +96,29 @@ html {
           font-size: 14px;
         }
       }
+      table {
+        width: 100%;
+        th {
+          border-bottom: 1px solid #ccc;
+          text-align: left;
+        }
+      }
+      .edit_button {
+        float: right;
+        border: 1px solid #ccc;
+        padding: 4px 15px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background:-moz-linear-gradient(top, #F9F9F9, #E3E3E3); /* Firefox */
+        background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3)); /* Safari, Chrome */
+        background:-webkit-linear-gradient(top, #F9F9F9, #E3E3E3); /* Safari, Chrome - neue Syntax! */
+        background:-o-linear-gradient(top, #F9F9F9, #E3E3E3); /* Opera */
+        background:-ms-linear-gradient(top, #F9F9F9, #E3E3E3); /* IE */
+        background:linear-gradient(top, #F9F9F9, #E3E3E3); /* W3C Standard */
+        color: #000;
+        text-decoration: none;
+      }
     }
   }
 }
