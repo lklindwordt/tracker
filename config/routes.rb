@@ -1,4 +1,6 @@
 Tracker::Application.routes.draw do
+  resources :notices
+
   root :to => 'projects#index'
   resources :projects
 
