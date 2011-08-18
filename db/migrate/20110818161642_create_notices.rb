@@ -2,7 +2,11 @@ class CreateNotices < ActiveRecord::Migration
   def change
     create_table :notices do |t|
       t.integer :project_id
-      t.text :notice
+      t.text :node
+      t.integer :user_id
+      t.string :element
+      t.string :position
+      t.string :url
 
       t.timestamps
     end

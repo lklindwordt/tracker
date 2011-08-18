@@ -1,8 +1,12 @@
 Tracker::Application.routes.draw do
-  resources :notices
+  
+  
 
   root :to => 'projects#index'
   resources :projects
+  resources :notices
+  
+  match '/notice', :to => 'notices#extern'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

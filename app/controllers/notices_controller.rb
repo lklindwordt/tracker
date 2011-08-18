@@ -1,4 +1,5 @@
 class NoticesController < ApplicationController
+  
   # GET /notices
   # GET /notices.json
   def index
@@ -79,5 +80,21 @@ class NoticesController < ApplicationController
       format.html { redirect_to notices_url }
       format.json { head :ok }
     end
+  end
+  
+  #TODO identify user and create new user
+  def extern     
+    @project = Project.find_by_name(request.subdomain)
+    if @project
+      @notice = Notice.new(params["notice"].merge({:project_id => @project.id}))
+      if @notice.save
+        render :text => "Notice saved"
+      else
+        render :text => "Notice not saved"
+      end
+    else  
+      location = request.subdomain
+      render :text => "This server hosted at #{location}"
+    end    
   end
 end
