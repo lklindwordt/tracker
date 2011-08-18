@@ -84,9 +84,15 @@ class NoticesController < ApplicationController
   
   #TODO identify user and create new user
   def extern     
-    @project = Project.find_by_name(request.subdomain)
+    hash = JSON.parse params[:notice]
+    url = hash[:url]
+    if url =~ /^http:\/\/(.+)\.(.+)\//
+      url = "#{$1}.#{$2.split('/').first}"
+    end
+    
+    @project = Project.where(["url LIKE ?", "http://#{url}%"]).first
     if @project
-      @notice = Notice.new(params["notice"].merge({:project_id => @project.id}))
+      @notice = Notice.new(hash.merge({:project_id => @project.id}))
       if @notice.save
         render :text => "Notice saved"
       else
