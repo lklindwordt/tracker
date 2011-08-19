@@ -9,9 +9,13 @@ $.screen = (el, options) ->
   $el = el
   
   init = (options) ->
-     $el.height($(window).height())
-     $(window).resize ->
-       $el.height($(window).height())
+    log("Screen -> init")
+    $el.height($(window).height())
+    $(window).resize ->
+      $el.height($(window).height())
+       
+  log = (msg) ->
+    console.log msg if defaults.log
     
   init options
   

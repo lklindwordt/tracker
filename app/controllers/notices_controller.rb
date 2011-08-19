@@ -84,9 +84,8 @@ class NoticesController < ApplicationController
   end
   
   #TODO identify user and create new user
+  #TODO JSON.parse Error => Parameters: {"notice"=>"{\"note\":\"test von weluse\",\"element\":\"foo\",\"url\":\"http://weluse.de/"}
   def extern     
-    #params[:notice] = '	{"note":"ydf","element":"foo","url":"http://stackoverflow.com/questions/2384561/ruby-on-rails-form-page-caching-including-authenticity-token","position":"0,0"}'
-    
     hash = JSON.parse params[:notice]
     url = hash["url"]
     logger.debug("DEBUG-AUSGABE:")
