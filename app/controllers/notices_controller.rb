@@ -4,12 +4,13 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @project = Project.find_by_origin request.headers['HTTP_ORIGIN']
+    @notices = @project.notices
+    
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notices }
-      format.js { render json: @notices }
     end
   end
 
