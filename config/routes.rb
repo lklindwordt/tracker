@@ -5,6 +5,12 @@ Tracker::Application.routes.draw do
   root :to => 'projects#index'
   resources :projects
   resources :notices
+  resources :users
+  resources :sessions
+    
+  get "register" => "users#new", :as => "register"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
   
   match '/notice', :to => 'notices#extern'
 

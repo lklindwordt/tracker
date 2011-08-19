@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="navigation">
+	<div id="navigation"></p>
+		<% if current_user %>
+		<div class="current_user">
+			<p><%= current_user.email %></p>
+			<%= link_to "Logout", logout_path %>
+		</div>
+		<% end %>
 		<%= link_to "Projekt erstellen", new_project_path, :class => 'button' %>
 		<ul>
 		<% @projects.each do |project| %>
@@ -15,7 +21,10 @@
 		<% end %>
 		</ul>
 	</div>
-	<div id="content">
+	<div class="content">
+		<% flash.each do |key, value| %>
+	  	<div class="flash <%= key %>"><%= value %></div>
+	  <% end %>
 		<%= yield %>
 	</div>
 </body>

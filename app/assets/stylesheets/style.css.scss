@@ -15,7 +15,10 @@ html {
       box-shadow: 0 0 5px #ccc;
       float: right;
       margin-top: -20px;
-      padding-top: 30px;
+      padding-top: 0px;
+      .current_user {
+        padding: 0 30px 20px 30px;
+      }
       .button {
         background:-moz-linear-gradient(top, #5BC1FD, #0573D3); /* Firefox */
         background:-webkit-gradient(linear, left top, left bottom, from(#5BC1FD), to(#0573D3)); /* Safari, Chrome */
@@ -50,7 +53,7 @@ html {
         }
       }
     }
-    #content {
+    .content {
       margin: 20px 350px 40px 40px;
       padding: 20px;
       -webkit-border-radius: 5px;
@@ -60,6 +63,10 @@ html {
       -webkit-box-shadow: 0 0 5px #ccc;
       box-shadow: 0 0 5px #ccc;
       background: #fff;
+      &.login {
+        margin: 100px auto;
+        width: 500px;
+      }
       h1 {
         color: #000;
         font-size: 18px;
@@ -68,6 +75,9 @@ html {
       label {
         width: 150px;
         font-size: 14px;
+        display: block;
+        float: left;
+        padding-top: 0.2em;
       }
       .inputs {
         input {

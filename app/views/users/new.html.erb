@@ -1,0 +1,12 @@
+<h1>Registrieren</h1>
+
+<%= semantic_form_for @user do |form| %>
+	<%= form.inputs do %>
+	  <%= form.input :email %>
+	  <%= form.input :password %>
+	  <%= form.input :password_confirmation %>
+	<% end %>
+	<%= form.buttons do %>
+	  <%= form.commit_button :register %>
+	<% end %>
+<% end %>
