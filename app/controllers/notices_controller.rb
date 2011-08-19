@@ -110,7 +110,7 @@ class NoticesController < ApplicationController
       
     end  
     respond_to do |format|  
-      format.json { render json: @responseobj }
+      format.json { render :json => @responseobj, :status => 200 }
     end
   end
 end

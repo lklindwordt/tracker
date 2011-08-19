@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
   
   def add_xhr_response_header
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, OPTIONS'
+    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT'
   end
 end
