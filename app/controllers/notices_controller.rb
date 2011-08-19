@@ -1,5 +1,5 @@
 class NoticesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => ['extern']
   
   # GET /notices
   # GET /notices.json
@@ -85,23 +85,32 @@ class NoticesController < ApplicationController
   
   #TODO identify user and create new user
   def extern     
+    #params[:notice] = '	{"note":"ydf","element":"foo","url":"http://stackoverflow.com/questions/2384561/ruby-on-rails-form-page-caching-including-authenticity-token","position":"0,0"}'
+    
     hash = JSON.parse params[:notice]
-    url = hash[:url]
+    url = hash["url"]
+    logger.debug("DEBUG-AUSGABE:")
+    #logger.debug(hash)
+    #logger.debug(url)
     if url =~ /^http:\/\/(.+)\.(.+)\//
       url = "#{$1}.#{$2.split('/').first}"
     end
-    
-    @project = Project.where(["url LIKE ?", "http://#{url}%"]).first
+    logger.debug(url)
+    @project = Project.where(["url LIKE ?", "%#{url}%"]).first
     if @project
       @notice = Notice.new(hash.merge({:project_id => @project.id}))
       if @notice.save
-        render :text => "Notice saved"
+        @responseobj = {'status' => 'success', 'message' => 'Notice saved.'}
       else
-        render :text => "Notice not saved"
+        @responseobj = {'status' => 'error', 'message' => 'Notice not saved.'}
       end
     else  
-      location = request.subdomain
-      render :text => "This server hosted at #{location}"
-    end    
+      #location = request.subdomain
+      @responseobj = {'status' => 'error', 'message' => 'No project found.'}
+      
+    end  
+    respond_to do |format|  
+      format.json { render json: @responseobj }
+    end
   end
 end
