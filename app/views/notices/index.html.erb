@@ -12,7 +12,7 @@
 <% @notices.each do |notice| %>
   <tr>
     <td><%= notice.project_id %></td>
-    <td><%= notice.notice %></td>
+    <td><%= notice.note %></td>
     <td><%= link_to 'Show', notice %></td>
     <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
     <td><%= link_to 'Destroy', notice, confirm: 'Are you sure?', method: :delete %></td>
