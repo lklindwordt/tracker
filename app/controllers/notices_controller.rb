@@ -75,10 +75,11 @@ class NoticesController < ApplicationController
   # DELETE /notices/1.json
   def destroy
     @notice = Notice.find(params[:id])
+    project = @notice.project
     @notice.destroy
 
     respond_to do |format|
-      format.html { redirect_to notices_url }
+      format.html { redirect_to project }
       format.json { head :ok }
     end
   end
