@@ -13,13 +13,12 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     
     success = authenticate user
-    
     token = form_authenticity_token
-    logger.debug session[:_csrf_token]
+    
     respond_to do |format|
       if success
         format.html { redirect_to root_url, :notice => "Logged in!" }
-        format.js { render json: { success: true, authToken: token } }
+        format.js { render json: { success: true, authToken: token, session: cookies[:auth_token] } }
       else
         format.html { 
           flash.now.alert = "Invalid email or password"
