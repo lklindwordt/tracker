@@ -1,5 +1,5 @@
 class NoticesController < ApplicationController
-  before_filter :authenticate_user!, :except => ['extern']
+  #before_filter :authenticate_user!, :except => ['extern']
   
   # GET /notices
   # GET /notices.json
@@ -100,17 +100,16 @@ class NoticesController < ApplicationController
     if @project
       @notice = Notice.new(hash.merge({:project_id => @project.id}))
       if @notice.save
-        @responseobj = {'status' => 'success', 'message' => 'Notice saved.'}
+        @responseobj = {'type' => 'success', 'message' => 'Notice saved.'}
       else
-        @responseobj = {'status' => 'error', 'message' => 'Notice not saved.'}
+        @responseobj = {'type' => 'error', 'message' => 'Notice not saved.'}
       end
     else  
       #location = request.subdomain
-      @responseobj = {'status' => 'error', 'message' => 'No project found.'}
-      
+      @responseobj = {'type' => 'error', 'message' => 'No project found.'}      
     end  
     respond_to do |format|  
-      format.json { render :json => @responseobj, :status => 200 }
-    end
+      format.json { render :json => {:success => 'ok'}, :status => 200 }
+    end    
   end
 end
