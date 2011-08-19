@@ -7,30 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="navigation"></p>
-		<% if current_user %>
-		<div class="current_user">
-			<p><%= current_user.email %></p>
-			<%= link_to "Logout", logout_path %>
+	<div id="container">
+		<header>
+			<%= link_to "log out", logout_path %>
+			<%= image_tag("logo_web.png", :title => "Bug Tracker", :alt => "Bug Tracker", :class => "tracker") %>
+			<% if @project %>
+				<p>project: <%= @project.url %></p>
+			<% elsif @notice && @notice.project %>
+				<p>project: <%= @notice.project.url %></p>
+			<% end %>
+		</header>
+		<div id="navigation">
+			<ul>
+				<li class="right"><%= link_to "new talk", new_project_path %></li>
+				<li class="right"><%= link_to "new task", new_notice_path %></li>
+				<li class="right"><%= link_to "new project", new_project_path %></li>
+				
+				<li><%= link_to "my tasks", notices_path %></li>
+				<li><%= link_to "my talks", new_project_path %></li>
+				<li><%= link_to "my projects", projects_path %></li>
+			</ul>
 		</div>
-		<% end %>
-		<%= link_to "Projekt erstellen", new_project_path, :class => 'button' %>
-		<ul>
-		<% @projects.each do |project| %>
-			<li><%= link_to project.name, project %></li>
-		<% end %>
-		</ul>
+		<div class="content">
+			<% flash.each do |key, value| %>
+		  	<div class="flash <%= key %>"><%= value %></div>
+		  <% end %>
+			<%= yield %>
+		</div>
 	</div>
-	<div class="content">
-		<% flash.each do |key, value| %>
-	  	<div class="flash <%= key %>"><%= value %></div>
-	  <% end %>
-		<%= yield %>
-	</div>
-	<script type="text/javascript">
-	// <![CDATA[
-    $("#navigation").screen();
-  //]]>
-	</script>
+	
 </body>
 </html>

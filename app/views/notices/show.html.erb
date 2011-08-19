@@ -1,18 +1,30 @@
-<p>
-  <b>Project:</b>
-  <%= @notice.project_id %>
-</p>
+<div class="shared">
+	<p>shared width:</p>
+	<%= image_tag("share_1.png", :title => "shared", :alt => "shared") %>
+</div>
 
-<p>
-  <b>Element ID:</b>
-  #<%= @notice.element %>
-</p>
+<div class="notice_des">
+	<p>task <%= @notice.id %>:</p>
+	<table cellspacing="0" cellpadding="0" class="notice_des">
+		<tr class="name">
+			<td><%= @notice.note %></td>
+			<td rowspan="2" class="actions">
+				<ul>
+					<li><%= link_to "edit", edit_notice_path(@notice) %></li>
+					<li><%= link_to "look at notes", notices_path %></li>
+					<li><%= link_to "split task", notices_path %></li>
+					<li><%= link_to "done", edit_notice_path(@notice) %></li>
+					<li><%= link_to "delete", notice, confirm: 'Are you sure?', method: :delete %></li>
+				</ul>
+			</td>
+		</tr>
+		<tr class="desc">
+			<td>description of task</td>
+		</tr>
+		<tr>
+			<td class="comment"><%= link_to "comments", notices_path %></td>
+			<td class="actions"></td>
+		</tr>
+	</table>
+</div>
 
-<p>
-  <b>Notice:</b>
-  <%= @notice.note %>
-</p>
-
-
-<%= link_to 'Edit', edit_notice_path(@notice) %> |
-<%= link_to 'Back', notices_path %>
