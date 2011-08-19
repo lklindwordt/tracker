@@ -7,7 +7,7 @@ Tracker::Application.routes.draw do
   resources :notices
   resources :users
   resources :sessions
-    
+  
   get "register" => "users#new", :as => "register"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
