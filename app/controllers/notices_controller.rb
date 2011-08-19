@@ -9,6 +9,7 @@ class NoticesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notices }
+      format.js { render json: @notices }
     end
   end
 
@@ -47,10 +48,9 @@ class NoticesController < ApplicationController
     respond_to do |format|
       if @notice.save
         format.html { redirect_to @notice, notice: 'Notice was successfully created.' }
-        format.json { render json: @notice, status: :created, location: @notice }
+        format.js { render json: @notice, status: :created, location: @notice }
       else
         format.html { render action: "new" }
-        format.json { render json: @notice.errors, status: :unprocessable_entity }
       end
     end
   end
