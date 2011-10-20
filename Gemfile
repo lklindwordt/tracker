@@ -2,31 +2,38 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
+gem 'cancan'
 gem 'sqlite3'
 gem 'multi_json', '1.0.3'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0.rc"
-  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'sprite-factory', ">= 1.4.1"
+  gem 'chunky_png'
 end
 
 gem 'jquery-rails'
-
+gem 'capistrano'
+gem 'capistrano-ext'
 gem 'formtastic', '2.0.0.rc3'
+gem 'unicorn'
+gem 'haml'
+gem 'sass'
+gem 'sass-rails'
+gem 'default_value_for'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+gem 'rbtrace'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'handlebars_assets'
+gem 'execjs', :git => 'git://github.com/sstephenson/execjs.git'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'rspec-rails', group: [:development, :test]
+gem 'ruby-debug19', require: 'ruby-debug', group: [:development, :test]
+gem 'growl', group: [:development]
 
 group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'machinist', '>= 2.0.0.beta2'
 end

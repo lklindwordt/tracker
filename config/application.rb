@@ -41,5 +41,9 @@ module Tracker
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.generators.stylesheet_engine = :sass
+    config.generators.test_framework :rspec, :spec => true
+    config.generators.fixture_replacement :machinist
   end
 end
