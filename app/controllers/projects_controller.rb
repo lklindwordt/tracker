@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
 
   protected
   def project
-    if params.has_key(:id)
+    if params.has_key?(:id)
       Project.find params[:id]
     else
       Project.new params[:project]
