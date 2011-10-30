@@ -19,6 +19,9 @@ gem 'capistrano-ext'
 gem 'formtastic', '2.0.0.rc3'
 gem 'unicorn'
 gem 'haml'
+gem 'bcrypt-ruby'
+gem 'compass', git: 'https://github.com/chriseppstein/compass.git'#, branch: :master
+gem 'compass-960-plugin', :require => false
 gem 'sass'
 gem 'sass-rails'
 gem 'default_value_for'
