@@ -32,7 +32,6 @@ gem 'handlebars_assets'
 gem 'execjs', :git => 'git://github.com/sstephenson/execjs.git'
 
 gem 'rspec-rails', group: [:development, :test]
-gem 'ruby-debug19', require: 'ruby-debug', group: [:development, :test]
 gem 'growl', group: [:development]
 
 group :test do

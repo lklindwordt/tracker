@@ -2,15 +2,15 @@
   defaults =
     property: 'value'
 
-  class Loader
-    constructor:  ->
+  class window.Loader
+    constructor:  (options) ->
       @options = $.extend {}, defaults, options
 
       @_defaults = defaults
-      @_name = pluginName
 
       @init()
 
     init: ->
       # ToDo
+
 )(jQuery, window, document)
