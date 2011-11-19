@@ -1,0 +1,47 @@
+(($, window, document) ->
+  searchToParam = (str) ->
+    obj = {}
+    parts = str.split '&'
+    for part in parts
+      kv = part.split '='
+      [key, value] = kv
+      obj[key] = value
+
+    obj
+
+  scriptQuery = (identifier) ->
+    scripts = document.getElementsByTagName('script')
+    for script in scripts
+      if script.src.match identifier
+        return searchToParam (script.src.match(/\?.*/) || [undefined])[0];
+    ""
+
+  projectDefaults =
+    host: 'http://tracker.dev' # TODO should be dynamic per deployment!
+
+  class Project
+    constructor: (options = {}) ->
+      console.log options
+
+  class window.Loader
+    constructor:  (options) ->
+      @options = $.extend {}, defaults, options
+
+      @_defaults = defaults
+      @_project = null
+
+      @init()
+
+    init: ->
+      initializeProject()
+
+    projectOptions: ->
+      @options.project || { id: 'foo' }
+
+    initializeProject: ->
+      @_project ?= new Project @projectOptions()
+      window.project = @_project
+
+  $ ->
+    console.log scriptQuery("client.js")
+)(jQuery, window, document)
