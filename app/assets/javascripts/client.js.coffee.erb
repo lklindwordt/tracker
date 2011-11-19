@@ -26,10 +26,12 @@
   # configuration
   projectDefaults =
     host: 'http://tracker.dev' # TODO should be dynamic per deployment!
+    resource: '/projects'
 
   #
   class Project
     constructor: (options = {}) ->
+      @_options = $.extend {}, projectDefaults, options
 
   loaderDefaults =
     key: "value"
@@ -49,7 +51,7 @@
       console.log @_project
 
     projectOptions: ->
-      @_options.project || { id: 'foo' }
+      @_options.project || { id: @_options.projectId }
 
     initializeProject: ->
       @_project ?= new Project @projectOptions()
