@@ -1,4 +1,11 @@
 (($, window, document) ->
+  Object::reverseMerge = (source) ->
+    for key of source
+      if !(key of this)
+        this[key] = source[key]
+    this
+
+  # Helper!
   searchToParam = (str) ->
     obj = {}
     parts = str.split '&'
@@ -16,32 +23,37 @@
         return searchToParam (script.src.match(/\?.*/) || [undefined])[0];
     ""
 
+  # configuration
   projectDefaults =
     host: 'http://tracker.dev' # TODO should be dynamic per deployment!
 
+  #
   class Project
     constructor: (options = {}) ->
-      console.log options
 
-  class window.Loader
+  loaderDefaults =
+    key: "value"
+
+  #
+  class Loader
     constructor:  (options) ->
-      @options = $.extend {}, defaults, options
+      @_options = $.extend {}, loaderDefaults, options
 
-      @_defaults = defaults
       @_project = null
 
       @init()
 
     init: ->
-      initializeProject()
+      @initializeProject()
+      console.log @_options
+      console.log @_project
 
     projectOptions: ->
-      @options.project || { id: 'foo' }
+      @_options.project || { id: 'foo' }
 
     initializeProject: ->
       @_project ?= new Project @projectOptions()
-      window.project = @_project
 
   $ ->
-    console.log scriptQuery("client.js")
+    loader = new Loader scriptQuery("client.js")
 )(jQuery, window, document)
