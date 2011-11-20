@@ -1,0 +1,10 @@
+define "project", [], ->
+  # configuration
+  projectDefaults =
+    host: 'http://tracker.dev' # TODO should be dynamic per deployment!
+    resource: '/projects'
+
+  #
+  class Project
+    constructor: (options = {}) ->
+      @_options = $.extend {}, projectDefaults, options

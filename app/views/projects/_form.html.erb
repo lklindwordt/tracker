@@ -1,7 +1,7 @@
-<%= semantic_form_for @project do |form| %>
+<%= semantic_form_for project do |form| %>
   <%= form.inputs do %>
-		<%= form.input :url, :as => 'string' %>
-		<%= form.input :name, :as => 'string' %>
-	<% end %>
+    <%= form.input :url, :as => 'string' %>
+    <%= form.input :name, :as => 'string' %>
+  <% end %>
   <%= form.buttons %>
 <% end %>

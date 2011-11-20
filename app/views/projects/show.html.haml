@@ -1,0 +1,14 @@
+%h1
+  Projekt:
+  = project.name
+
+%p
+  Url:
+  = project.url
+
+%p
+  Place the following HTML on your project's side to enable Tracker feedback:
+%p
+  = feedback_snippet project
+
+!= feedback_snippet project

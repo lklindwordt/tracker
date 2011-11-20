@@ -1,0 +1,8 @@
+#= require jquery
+#= require helpers
+#= require project
+#= require loader
+
+require ["jquery", "helpers", "project", "loader"], ($, Helper, Project, Loader) ->
+  $ ->
+    loader = new Loader Helper.scriptQuery("client.js")

@@ -1,0 +1,23 @@
+define "loader", ["project"], (Project) ->
+  loaderDefaults =
+    key: "value"
+
+  #
+  class Loader
+    constructor:  (options) ->
+      @_options = $.extend {}, loaderDefaults, options
+
+      @_project = null
+
+      @init()
+
+    init: ->
+      @initializeProject()
+      console.log @_options
+      console.log @_project
+
+    projectOptions: ->
+      @_options.project || { id: @_options.projectId }
+
+    initializeProject: ->
+      @_project ?= new Project @projectOptions()

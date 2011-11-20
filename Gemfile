@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.2'
 
+gem 'requirejs-rails'
+
 gem 'cancan'
 gem 'sqlite3'
 gem 'multi_json', '1.0.3'
