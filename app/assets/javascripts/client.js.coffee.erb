@@ -1,39 +1,8 @@
 #= require jquery
 #= require helpers
+#= require project
+#= require loader
 
-require ["jquery", "helpers"], ($, Helper) ->
-  # configuration
-  projectDefaults =
-    host: 'http://tracker.dev' # TODO should be dynamic per deployment!
-    resource: '/projects'
-
-  #
-  class Project
-    constructor: (options = {}) ->
-      @_options = $.extend {}, projectDefaults, options
-
-  loaderDefaults =
-    key: "value"
-
-  #
-  class Loader
-    constructor:  (options) ->
-      @_options = $.extend {}, loaderDefaults, options
-
-      @_project = null
-
-      @init()
-
-    init: ->
-      @initializeProject()
-      console.log @_options
-      console.log @_project
-
-    projectOptions: ->
-      @_options.project || { id: @_options.projectId }
-
-    initializeProject: ->
-      @_project ?= new Project @projectOptions()
-
+require ["jquery", "helpers", "project", "loader"], ($, Helper, Project, Loader) ->
   $ ->
     loader = new Loader Helper.scriptQuery("client.js")
