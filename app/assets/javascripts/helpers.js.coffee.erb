@@ -1,0 +1,26 @@
+define "helpers", [], ->
+  Object::reverseMerge = (source) ->
+    for key of source
+      if !(key of this)
+        this[key] = source[key]
+    this
+
+  class Helper
+    searchToParam: (str) ->
+      obj = {}
+      parts = str.split '&'
+      for part in parts
+        kv = part.split '='
+        [key, value] = kv
+        obj[key] = value
+
+      obj
+
+    scriptQuery: (identifier) ->
+      scripts = document.getElementsByTagName('script')
+      for script in scripts
+        if script.src.match identifier
+          return @searchToParam (script.src.match(/\?.*/) || [undefined])[0];
+      ""
+
+  new Helper()

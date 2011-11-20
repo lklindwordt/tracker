@@ -1,28 +1,7 @@
-(($, window, document) ->
-  Object::reverseMerge = (source) ->
-    for key of source
-      if !(key of this)
-        this[key] = source[key]
-    this
+#= require jquery
+#= require helpers
 
-  # Helper!
-  searchToParam = (str) ->
-    obj = {}
-    parts = str.split '&'
-    for part in parts
-      kv = part.split '='
-      [key, value] = kv
-      obj[key] = value
-
-    obj
-
-  scriptQuery = (identifier) ->
-    scripts = document.getElementsByTagName('script')
-    for script in scripts
-      if script.src.match identifier
-        return searchToParam (script.src.match(/\?.*/) || [undefined])[0];
-    ""
-
+require ["jquery", "helpers"], ($, Helper) ->
   # configuration
   projectDefaults =
     host: 'http://tracker.dev' # TODO should be dynamic per deployment!
@@ -57,5 +36,4 @@
       @_project ?= new Project @projectOptions()
 
   $ ->
-    loader = new Loader scriptQuery("client.js")
-)(jQuery, window, document)
+    loader = new Loader Helper.scriptQuery("client.js")

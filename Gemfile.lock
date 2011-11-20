@@ -142,6 +142,8 @@ GEM
       trollop (>= 1.16.2)
     rdoc (3.11)
       json (~> 1.4)
+    requirejs-rails (0.0.1)
+      rails (~> 3.1.1)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
       rspec-expectations (~> 2.7.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   multi_json (= 1.0.3)
   rails (= 3.1.2)
   rbtrace
+  requirejs-rails
   rspec-rails
   sass
   sass-rails
