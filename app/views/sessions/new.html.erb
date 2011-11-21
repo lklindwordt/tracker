@@ -1,27 +1,27 @@
 <h1>Login</h1>
 
 <%= form_tag sessions_path, :class => "formtastic"  do %>
-	<fieldset class="inputs">
-		<ol>
-			<li class="input">
-				<%= label_tag :email %>
-				<%= text_field_tag :email, params[:email] %>
-			</li>
-		  <li class="input">
-				<%= label_tag :password %>
-				<%= password_field_tag :password %>
-			</li>
-			<li class="input">		
-				<%= check_box_tag :remember_me, 1, params[:remember_me] %>
-				<%= label_tag "Remember me" %>
-			</li>
-		</ol>
-	</fieldset>
-	<fieldset class="buttons">
-		<ol>
-			<li>
-			<%= submit_tag "Login" %>
-			</li>
-		</ol>
-	</fieldset>	
+  <fieldset class="inputs">
+    <ol>
+      <li class="input">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, params[:email] %>
+      </li>
+      <li class="input">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </li>
+      <li class="input">
+        <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+        <%= label_tag "Remember me" %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="buttons">
+    <ol>
+      <li>
+      <%= submit_tag "Login" %>
+      </li>
+    </ol>
+  </fieldset>
 <% end %>
