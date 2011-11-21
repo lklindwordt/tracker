@@ -1,0 +1,55 @@
+@import compass/css3/border-radius
+@import compass/css3/box-shadow
+@import compass/css3/gradient
+
+html, body, ul
+  margin: 0
+  padding
+  
+html
+  font-family: Verdana
+  font-size: 14px
+
+  body
+    header
+      height: 70px
+      background: #f2f2f2
+      border-bottom: 1px solid #d2d2d2
+      
+      .logo
+        float: left
+        font-size: 24px
+        margin: 25px 0 0 0
+        
+      nav
+        margin-left: 200px
+        padding-top: 25px
+        .navigation
+          height: 30px
+          padding: 0
+          li
+            list-style: none
+            float: left
+            border: 1px solid #ccc
+            border-left: 0
+            padding: 4px 10px 6px 10px
+            
+            &.first
+              +border-radius(5px 0 0 5px)
+              border-left: 1px solid #ccc
+              +box-shadow(#ccc 0 1px 5px inset)
+              
+            &.last
+              +border-radius(0 5px 5px 0)
+            
+            a
+              text-decoration: none 
+              color: #999
+      
+    .container
+      width: 960px
+      margin: 0 auto
+      
+      h1
+        font-size: 20px
+        font-weight: normal

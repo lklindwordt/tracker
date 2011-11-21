@@ -1,0 +1,222 @@
+/* Buttons */
+$buttonbg: #5C9BB7;
+
+html {
+  body {
+    background-image: url('bg_noise_stripe.png');
+    background-repeat: repeat-x;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Verdana";
+    font-size: 14px;
+    #container {
+      margin: 0 auto;
+      width: 960px;
+      header {
+        height: 100px;
+        a {
+          float: right;
+          height: 26px;
+          padding-top: 7px;
+          text-align: center;
+          width: 100px;
+          background: $buttonbg;
+          opacity: .6;
+          filter: alpha(opacity=60);
+          -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+          color: #fff;
+          text-decoration: none;
+        }
+        .tracker {
+          margin: 10px 0 0 10px;
+        }
+        p {
+          float: right;
+          color: $buttonbg;
+          margin: 75px -100px 0 0;
+        }
+      }      
+      #navigation {
+        border-top: 1px solid $buttonbg;
+        ul {
+          margin: 0;
+          padding: 0;
+          height: 33px;
+          li {
+            float: left;
+            height: 26px;
+            padding-top: 7px;
+            text-align: center;
+            width: 100px;
+            background: $buttonbg;
+            opacity: .6;
+            filter: alpha(opacity=60);
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+            list-style: none;
+            margin: 1px 1px 0 0;
+            a {
+              text-decoration: none;
+              color: #fff;
+              &:hover {
+                background: none;                
+              }
+            } 
+            &.right {
+              float: right;
+            }         
+          }
+        }
+      }
+      .content {
+        padding-top: 30px;
+        &.login {
+          margin: 100px auto;
+          width: 500px; 
+        }
+        .notice {
+          color: green;
+        }
+        .alert {
+          color: red;
+        }
+        h1 {
+          color: $buttonbg;
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+        label {
+          width: 150px;
+          font-size: 14px;
+          display: block;
+          float: left;
+          padding-top: 0.2em;
+          color: $buttonbg;
+        }
+        .inputs {
+          input {
+            width: 250px;
+            height: 25px;
+            font-size: 14px;
+            border: 1px solid $buttonbg;
+          }
+        }
+        .buttons {
+          padding: 0;
+          input {
+            height: 33px;
+            padding: 7px 0 ;
+            text-align: center;
+            width: 100px;
+            background: $buttonbg;
+            opacity: .6;
+            filter: alpha(opacity=60);
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+            color: #fff;
+            text-decoration: none;
+            border: 0;
+          }
+        }
+        table {
+          width: 100%;
+          th {
+            color: $buttonbg;
+            text-align: left;
+            font-weight: normal;
+          }
+          td {
+            margin: 1px 0;
+            background-image: url('button_hl_5x5.png');
+            border-top: 1px solid #fff;
+            padding: 5px;
+          }
+        }
+        .edit_button {
+          float: right;
+          border: 1px solid #ccc;
+          padding: 4px 15px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          background:-moz-linear-gradient(top, #F9F9F9, #E3E3E3); /* Firefox */
+          background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3)); /* Safari, Chrome */
+          background:-webkit-linear-gradient(top, #F9F9F9, #E3E3E3); /* Safari, Chrome - neue Syntax! */
+          background:-o-linear-gradient(top, #F9F9F9, #E3E3E3); /* Opera */
+          background:-ms-linear-gradient(top, #F9F9F9, #E3E3E3); /* IE */
+          background:linear-gradient(top, #F9F9F9, #E3E3E3); /* W3C Standard */
+          color: #000;
+          text-decoration: none;
+        }
+        .shared {
+          float: right;
+          color: $buttonbg;
+          img {
+            margin: 30px 0 0 0;
+          }
+        }
+        .notice_des {
+          width: 700px;
+          color: $buttonbg;
+          table {
+            color: #666;
+            tr.name {
+              
+            }
+            tr.desc {
+              height: 170px;
+            }            
+            td.actions {
+              background: none;
+              width: 100px;
+              padding: 0;
+              padding-top: 30px;
+              
+              ul {
+                margin: 0;
+                padding: 0;
+                height: 33px;
+                li {
+                  float: left;
+                  height: 26px;
+                  padding-top: 7px;
+                  text-align: center;
+                  width: 100px;
+                  background: $buttonbg;
+                  opacity: .6;
+                  filter: alpha(opacity=60);
+                  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+                  list-style: none;
+                  margin: 1px 0px 0 1px;
+                  a {
+                    text-decoration: none;
+                    color: #fff;
+                    &:hover {
+                      background: none;                
+                    }
+                  }
+                }
+              }
+            }
+            td.comment {
+              background: none;
+              padding: 0;
+              a {
+                float: right;
+                height: 26px;
+                padding-top: 7px;
+                text-align: center;
+                width: 100px;
+                background: $buttonbg;
+                opacity: .6;
+                filter: alpha(opacity=60);
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+                color: #fff;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

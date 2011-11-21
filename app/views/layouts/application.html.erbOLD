@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tracker</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <%= link_to "log out", logout_path %>
+      <%= image_tag("logo_web.png", :title => "Bug Tracker", :alt => "Bug Tracker", :class => "tracker") %>
+      <% if @project %>
+        <p>project: <%= @project.url %></p>
+      <% elsif @notice && @notice.project %>
+        <p>project: <%= @notice.project.url %></p>
+      <% end %>
+    </header>
+    <div id="navigation">
+      <ul>
+        <li class="right"><%= link_to "new project", new_project_path %></li>
+      </ul>
+    </div>
+    <div class="content">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+</html>
