@@ -1,0 +1,23 @@
+%h1
+	Projekte
+	
+	
+%table
+	%tr
+		%th
+			URL
+		%th
+			Name
+		%th
+		%th
+		
+	- @projects.each do |project|
+		%tr
+			%td
+				= project.url
+			%td
+				= project.name
+			%td
+				= link_to 'Show', project
+			%td
+				= link_to 'Edit', edit_project_path(project)
