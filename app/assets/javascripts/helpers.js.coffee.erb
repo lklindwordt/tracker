@@ -1,10 +1,4 @@
 define "helpers", [], ->
-  Object::reverseMerge = (source) ->
-    for key of source
-      if !(key of this)
-        this[key] = source[key]
-    this
-
   class Helper
     searchToParam: (str) ->
       obj = {}
@@ -22,5 +16,11 @@ define "helpers", [], ->
         if script.src.match identifier
           return @searchToParam (script.src.match(/\?.*/) || [undefined])[0];
       ""
+
+    reverseMerge: (other, source) ->
+      for key of source
+        if !(key of other)
+          other[key] = source[key]
+      other
 
   new Helper()

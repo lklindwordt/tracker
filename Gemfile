@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.2'
+gem 'rails', '3.1.3'
 
 gem 'requirejs-rails'
 
@@ -20,7 +20,12 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem 'formtastic', '2.0.0.rc3'
 gem 'unicorn'
-gem 'haml'
+
+gem 'haml_assets'
+gem 'handlebars_assets'
+gem 'ejs'
+gem 'haml', :git => 'https://github.com/infbio/haml.git', :branch => 'form_for_fix'
+
 gem 'bcrypt-ruby'
 gem 'compass', git: 'https://github.com/chriseppstein/compass.git'#, branch: :master
 gem 'compass-960-plugin', :require => false
@@ -28,7 +33,7 @@ gem 'sass'
 gem 'sass-rails'
 gem 'default_value_for'
 
-gem 'rbtrace'
+# gem 'rbtrace'
 
 gem 'handlebars_assets'
 gem 'execjs', :git => 'git://github.com/sstephenson/execjs.git'
