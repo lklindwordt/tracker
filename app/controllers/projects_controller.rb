@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!
-
   helper_method :project
 
   def index

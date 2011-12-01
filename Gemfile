@@ -4,6 +4,7 @@ gem 'rails', '3.1.2'
 
 gem 'requirejs-rails'
 
+gem 'devise'
 gem 'cancan'
 gem 'sqlite3'
 gem 'multi_json', '1.0.3'
@@ -18,7 +19,7 @@ end
 gem 'jquery-rails'
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'formtastic', '2.0.0.rc3'
+gem "simple_form"
 gem 'unicorn'
 gem 'haml'
 gem 'bcrypt-ruby'

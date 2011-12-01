@@ -1,32 +1,30 @@
 %html
-	%head
-		%title BugTracker
-			
-		!= stylesheet_link_tag 'application.css'
-		!= javascript_include_tag "application"
-		!= csrf_meta_tags
-			
+  %head
+    %title BugTracker
+    != stylesheet_link_tag 'application.css'
+    != javascript_include_tag "application"
+    != csrf_meta_tags
 %body
-	%header
-		.container
-			.logo BugTracking
-			
-			%nav
-				%ul.navigation
-					%li.first!= link_to 'Login', login_path
-					%li.last!= link_to 'Register', login_path
-					
-			
+  %header
+    .container
+      .logo BugTracking
+      %nav
+        %ul.navigation
+          - if @current_user
+            %li.first!= link_to 'Projekte', projects_path
+            %li!= link_to 'Einstellungen', projects_path
+            %li.last!= link_to 'Logout', logout_path
+          - else
+            %li.first!= link_to 'Login', login_path
+            %li.last!= link_to 'Register', login_path
 
-	#content
-		.container
-			// flash notices
-			.notice
-				!= notice
-			.alert
-				!= alert
-
-			!= yield
-			
-	%footer
-		.container
+  #content
+    .container
+      // flash notices
+      .notice
+        != notice
+      .alert
+        != alert
+      != yield
+  %footer
+    .container

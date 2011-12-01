@@ -1,12 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
-  has_secure_password
-  validates_presence_of :password, :on => :create
-  before_create { generate_token(:auth_token) }
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
-  end
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 end

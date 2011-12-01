@@ -1,11 +1,10 @@
 Tracker::Application.routes.draw do
+  devise_for :users
+
   root :to => 'projects#index'
 
   resources :projects
   resources :tickets
-
-  resources :users
-  resources :sessions
 
   get "register" => "users#new", :as => "register"
   get "logout" => "sessions#destroy", :as => "logout"
