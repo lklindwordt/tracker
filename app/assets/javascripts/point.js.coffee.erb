@@ -1,0 +1,26 @@
+define "point", ["jquery"], ($) ->
+  class Point
+    constructor: (@x, @y, @screenX, @screenY) ->
+      @render()
+      @applyEventBindings()
+
+    newX: ->
+      @x / @screenX * $(document).width()
+
+    render: ->
+      sX = $(window).width()
+      sY = $(window).height()
+      console.log "render .point-#{@x}-#{@y}"
+      $point = $(".point-#{@x}-#{@y}")
+      if $point.length < 1
+        $point = $ JST["point"] {}
+        $point.addClass "point-#{@x}-#{@y}"
+        $(document.body).append $point
+
+      $point.css { left: @newX(), top: @y }
+
+
+    applyEventBindings: =>
+      $(window).resize =>
+        @render()
+        console.log "window resized"

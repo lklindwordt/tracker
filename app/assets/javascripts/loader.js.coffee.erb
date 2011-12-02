@@ -1,4 +1,4 @@
-define "loader", ["project"], (Project) ->
+define "loader", ["project", "menu"], (Project, Menu) ->
   loaderDefaults =
     key: "value"
 
@@ -15,9 +15,15 @@ define "loader", ["project"], (Project) ->
       @initializeProject()
       console.log @_options
       console.log @_project
+      @initializeMenu()
+
+      @_menu.render()
 
     projectOptions: ->
       @_options.project || { id: @_options.projectId }
 
     initializeProject: ->
       @_project ?= new Project @projectOptions()
+
+    initializeMenu: ->
+      @_menu ?= new Menu()
