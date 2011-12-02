@@ -3,19 +3,26 @@
 @import compass/css3/gradient
 
 .input
+  margin: 5px 0
   label
     float: left
     width: 125px
-    
+
+    &.required
+      abbr
+        display: none
+
   input
     border: 1px solid #CCCCCC
     padding: 3px 5px
 
-.buttons  
+.buttons
+  margin: 15px 0 20px 0
   input
+    margin-left: 125px
     border: 1px solid #ccc
     border-left: 0
-    padding: 6px 10px 4px 10px
+    padding: 5px 10px 5px 10px
     +border-radius(5px)
     border-left: 1px solid #ccc
     +box-shadow(#ccc 0 1px 5px inset)

@@ -1,14 +1,16 @@
 Tracker::Application.routes.draw do
   devise_for :users
 
+  #get "register" => "users#sign_up", :as => "register"
+  #get "logout" => "users#sign_out", :as => "logout"
+  #get "login" => "users#sign_in", :as => "login"
+
   root :to => 'projects#index'
 
   resources :projects
   resources :tickets
 
-  get "register" => "users#new", :as => "register"
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
+
 
   match '/notice', :to => 'notices#extern'
 

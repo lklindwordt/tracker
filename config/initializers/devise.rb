@@ -1,5 +1,5 @@
-# Use this hook to configure devise mailer, warden hooks and so forth. The first
-# four configuration values can also be set straight in your models.
+# Use this hook to configure devise mailer, warden hooks and so forth.
+# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "de66411700e148498e2e1a4ae161c3be51bbb9423db728305d27ab480d3575d2bf51a03fce7cdd64af97790f1b67531a57f23afd5cd2ab80bbf2d3dac1161f07"
+  # config.pepper = "7327a7e2aa46c2f5939e8d740438e97a82e8c86e436611bdfff7d0284e0da44825792539ae2db8043c0c60aa37a55585d77ce84f680fa04b2fbd7a847a8c76af"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -191,7 +191,8 @@ Devise.setup do |config|
   # config.navigational_formats = [:"*/*", "*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  #config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

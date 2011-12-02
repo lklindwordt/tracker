@@ -1,0 +1,13 @@
+%h2
+  = "Register"
+
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  .inputs
+    = f.input :email, :required => true, :autofocus => true
+    = f.input :password, :required => true
+    = f.input :password_confirmation, :required => true
+
+  .buttons
+    = f.submit
+
+= render :partial => "devise/shared/links"
