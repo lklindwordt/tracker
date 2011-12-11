@@ -3,3 +3,10 @@
 
 en:
   hello: "Hello world"
+
+  navigation:
+    sign_in: "Login"
+    sign_up: "Register"
+    sign_out: "Logout"
+    settings: "Settings"
+    projects: "Projects"

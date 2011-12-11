@@ -1,0 +1,56 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  hello: "Hello world"
+
+  navigation:
+    sign_in: "Anmelden"
+    sign_up: "Registrieren"
+    sign_out: "Abmelden"
+    settings: "Einstellungen"
+    projects: "Projekte"
+
+  view:
+    sessions:
+      new:
+        sign_in: "Anmelden"
+        email: "E-Mail"
+        password: "Passwort"
+        remember_me: "angemeldet bleiben"
+        submit: "Anmelden"
+    registrations:
+      new:
+        register: "Registrieren"
+        email: "E-Mail"
+        password: "Passwort"
+        password_confirmation: "Wiederholung"
+        submit: "Registrieren"
+      edit:
+        edit: "Konto bearbeiten"
+        email: "E-Mail"
+        new_pw: "Neues Passwort"
+        new_pw_hint: "Wenn sich nicht ihr Passwort ändern wollen, dann lassen Sie das Feld leer."
+        new_pw_repeat: "Wiederholung"
+        current_pw: "aktuelles Passwort"
+        current_pw_hint: "Um Ihre Änderungen zu bestätigen benötigen wir Ihr aktuelles Passwort."
+        submit: "Speichern"
+        cancel: "Konto löschen"
+        unhappy: "Sie sind nicht zufrieden mit dem Service?"
+    shared:
+      links:
+        sign_in: "Anmelden"
+        sign_up: "Registrieren"
+        forgot_password: "Passwort vergessen?"
+    passwords:
+      new:
+        forgot_password: "Passwort vergessen?"
+        email: "E-Mail"
+        submit: "Passwort zurücksetzen"
+    projects:
+      edit:
+        h1: "Projekt bearbeiten"
+
+
+
+

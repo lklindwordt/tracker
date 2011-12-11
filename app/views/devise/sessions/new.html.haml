@@ -1,13 +1,13 @@
 %h2
-  = "Login"
+  = t(:'view.sessions.new.sign_in')
 
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .inputs
-    = f.input :email, :required => false, :autofocus => true
-    = f.input :password, :required => false
-    = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+    = f.input :email, :label => t(:'view.sessions.new.email'), :required => false, :autofocus => true
+    = f.input :password, :label => t(:'view.sessions.new.password'), :required => false
+    = f.input :remember_me, :label => t(:'view.sessions.new.remember_me'), :as => :boolean if devise_mapping.rememberable?
 
   .buttons
-    = f.submit
+    = f.submit t(:'view.sessions.new.submit')
 
 = render :partial => "devise/shared/links"

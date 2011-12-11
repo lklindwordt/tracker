@@ -11,12 +11,12 @@
       %nav
         %ul.navigation
           - if user_signed_in?
-            %li.first!= link_to 'Projekte', projects_path
-            %li!= link_to 'Einstellungen', edit_user_registration_path
-            %li.last!= link_to 'Logout', destroy_user_session_path
+            %li.first!= link_to t(:'navigation.projects'), projects_path
+            %li!= link_to t(:'navigation.settings'), edit_user_registration_path
+            %li.last!= link_to t(:'navigation.sign_out'), destroy_user_session_path
           - else
-            %li.first!= link_to 'Login', user_session_path
-            %li.last!= link_to 'Register', new_user_registration_path
+            %li.first!= link_to t(:'navigation.sign_in'), user_session_path
+            %li.last!= link_to t(:'navigation.sign_up'), new_user_registration_path
 
   #content
     .container

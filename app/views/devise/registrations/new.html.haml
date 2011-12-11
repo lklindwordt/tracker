@@ -1,13 +1,13 @@
 %h2
-  = "Register"
+  = t(:'view.registrations.new.register')
 
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   .inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
+    = f.input :email, :label => t(:'view.registrations.new.email'), :required => true, :autofocus => true
+    = f.input :password, :label => t(:'view.registrations.new.password'), :required => true
+    = f.input :password_confirmation, :label => t(:'view.registrations.new.password_confirmation'), :required => true
 
   .buttons
-    = f.submit
+    = f.submit t(:'view.registrations.new.submit')
 
 = render :partial => "devise/shared/links"

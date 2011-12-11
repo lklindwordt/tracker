@@ -1,19 +1,19 @@
 %h2
-  = "Edit Account"
+  = t(:'view.registrations.edit.edit')
 
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   .inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :hint => "leave it blank if you don't want to change it", :required => false
-    = f.input :password_confirmation, :required => false
-    = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
+    = f.input :email, :label => t(:'view.registrations.edit.email'), :required => true, :autofocus => true
+    = f.input :password, :label => t(:'view.registrations.edit.new_pw'), :hint => t(:'view.registrations.edit.new_pw_hint'), :required => false
+    = f.input :password_confirmation, :label => t(:'view.registrations.edit.new_pw_repeat'), :required => false
+    = f.input :current_password, :label => t(:'view.registrations.edit.current_pw'), :hint => t(:'view.registrations.edit.current_pw_hint'), :required => true
 
   .buttons
-    = f.submit
+    = f.submit t(:'view.registrations.edit.submit')
 
 %h3
-  = "Cancel my account"
+  = t(:'view.registrations.edit.cancel')
 
 %p
-  = "Unhappy?"
-  = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+  = t(:'view.registrations.edit.unhappy')
+  = link_to t(:'view.registrations.edit.cancel'), registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
