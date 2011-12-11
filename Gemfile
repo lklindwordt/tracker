@@ -6,7 +6,7 @@ gem 'requirejs-rails'
 
 gem 'devise'
 gem 'cancan'
-gem 'sqlite3'
+gem 'mysql2'
 gem 'multi_json', '1.0.3'
 
 group :assets do
